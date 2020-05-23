@@ -26,11 +26,17 @@ public class SpringBootDataJpaApplication {
 	
 	@PostConstruct
 	public void init() {
-		Set<Player> players = new HashSet<Player>();
-		players.add(new Player("Charlie Brown","pitcher"));
-		players.add(new Player("Snoopy","shortstop"));
-		Team team = new Team("peanuts","California",players);
+		Set<Player> players1 = new HashSet<Player>();
+		players1.add(new Player("Charlie Brown","pitcher"));
+		players1.add(new Player("Snoopy","shortstop"));
 		
-		teamDao.save(team);
+		Set<Player> players2 = new HashSet<Player>();
+		players2.add(new Player("Jai","keeper"));
+		
+		Team team1 = new Team("lions","Gujrat",players1);
+		Team team2 = new Team("rangers","Delhi",players2);
+		
+		teamDao.save(team1);
+		teamDao.save(team2);
 	}
 }
